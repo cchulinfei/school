@@ -8,8 +8,6 @@ class ScoresController < ApplicationController
     @scores = Score.all
   end
 
-  # GET /scores/1
-  # GET /scores/1.json
   def show
   end
 
