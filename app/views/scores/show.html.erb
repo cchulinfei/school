@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>China:</strong>
+  <%= @score.china %>
+</p>
+
+<p>
+  <strong>Math:</strong>
+  <%= @score.math %>
+</p>
+
+<p>
+  <strong>Science:</strong>
+  <%= @score.science %>
+</p>
+
+<p>
+  <strong>Moral:</strong>
+  <%= @score.moral %>
+</p>
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>

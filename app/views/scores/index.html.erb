@@ -1,0 +1,62 @@
+
+<div class="panel panel-default">
+  <form action="/cities" method="get">
+    name<input type="text" id="china" name="china" value="<%= params[:china] %>">
+    <input type="submit" name="" value="搜索">
+  </form>
+  <div class="panel-heading">
+    成绩列表
+    <div class="pull-right">
+      <%= link_to "发送成绩", new_score_path, data: { confirm: '确定发送吗?' } , class: "btn btn-danger btn-xs" %>
+      <%= link_to "新建学生成绩", new_score_path, class: "btn btn-primary btn-xs" %>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table style="table-layout:fixed" class="table table-striped b-t b-light">
+      <thead>
+        <tr>
+          <th width="10%">学号</th>
+          <th >姓名</th>         
+          <th>性别</th>
+          <th>学年</th>
+          <th>语文</th>
+          <th>数学</th>
+          <th>科学</th>
+          <th>思想品德</th>
+          <th >评价</th>
+          <th >备注</th>
+          <th >创建时间</th>
+          <th >操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @scores.each do |score|%>
+        <tr>         
+          <td><%= score.student.number %></td>
+          <td><%= score.student.name %></td>
+          <% if score.student.sex == 1%>
+          <td>男</td>
+          <% else score.student.sex == 2%>
+          <td>女</td>
+          <% end %>
+          <td><%= score.academic_year %></td>
+          <td><%= score.china %></td>
+        <td><%= score.math %></td>
+        <td><%= score.science %></td>
+        <td><%= score.moral %></td>
+        <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"><%= score.evaluate %></td>
+        <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"><%= score.remark %></td>
+          <td><%= score.created_at.strftime("%F %T") %></td>
+          <td>
+            <%= link_to "查看", score, class: "btn btn-default btn-xs" %>
+            <%= link_to "修改", edit_score_path(score), class: "btn btn-default btn-xs" %>
+            <%= link_to "删除", score, method: :delete,  data: { confirm: '确定删除吗?' } ,class: "btn btn-danger btn-xs" %>
+          </td>   
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <footer class="panel-footer">
+      <%#= render partial: "shared/admin/paginate", locals: { object: @cities} %>
+    </footer>
+  </div>

@@ -1,0 +1,38 @@
+<aside id="aside" class="app-aside app-aside-fixed hidden-xs bg-dark">
+  <div class="aside-wrap">
+    <div class="navi-wrap">
+      <!-- nav -->
+      <nav ui-nav class="navi clearfix">
+        <ul class="nav">
+          <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+            <span>导航</span>
+          </li>
+          <li class="<%= "active" if controller_name == "home" %>">
+            <a href="/sidekiq/queues" class="auto">
+              <i class="glyphicon glyphicon-stats icon text-primary"></i>
+              <span class="font-bold">控制面板</span>
+            </a>
+          </li>
+          <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+            <span>平台管理</span>
+          </li>
+
+           <li class="<%= "active" if controller_name == "students" %>">
+                <a href="/students" class="auto">
+                  <i class="glyphicon glyphicon-user"></i>
+                  <span>学生管理</span>
+                </a>
+          </li>
+
+            <li class="<%= "active" if controller_name == "scores" %>">
+              <a href="/scores" class="auto">
+                <i class="glyphicon glyphicon-book"></i>
+                <span>成绩管理</span>
+              </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- nav -->
+    </div>
+  </div>
+</aside>
